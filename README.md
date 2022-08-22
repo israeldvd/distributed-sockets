@@ -22,7 +22,9 @@ A **principal biblioteca** em que se apoia este projeto, conforme apontado anter
 
 Para o uso do **protocolo UDP**, será possível valer-se da constante `socket.SOCK_DGRAM` (JENNINGS, 2022). Antes do envio dos dados entre os mensageiros por intermédio do protocolo TCP, seria preciso estabelecer uma conexão entre as partes; mais uma vez, este não vem ao caso. Porém, aqui também há trocas constantes mediantes os métodos `.send()` and `.recv()` – já mencionados na especificação da seção anterior.
 
-Primeiramente, ficaram estabelecidas o endereço **_host_** (IP) e o **endereço de porta** (_port number_) `127.0.0.1` e `1234`, respectivamente (ver código). O número de interface (ou porta) pode ser definido como maior que `1023` (valor limite para portas específicas); o valor dado foi tomado por conveniência. Com a declaração with é possível chamar o método `socket.socket()` sem a necessidade do método `socket.close()`, pois é executado implicitamente.
+Primeiramente, ficaram estabelecidas o endereço **_host_** (IP) e o **endereço de porta** (_port number_) `127.0.0.1` e `1234`, respectivamente (ver código). O número de interface (ou porta) pode ser definido como maior que `1023` (valor limite para portas específicas); o valor dado foi tomado por conveniência. Já o identificador _host_, no código, é implementado por uma variável com string, podendo ser nula, no caso do servidor, para deixá-lo atender em todas opções disponíveis.
+
+Com a declaração with é possível chamar o método `socket.socket()` sem a necessidade do método `socket.close()`, pois é executado implicitamente.
 
 ## Referências
 
