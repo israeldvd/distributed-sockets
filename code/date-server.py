@@ -7,15 +7,13 @@ TIMEOUT = 20  # Definição de timeout para espera de conexão
 
 with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as skt:
     # Aloca um buffer para ouvir conexões
+    skt.settimeout(TIMEOUT)  # Define um timeout em segundos
     try:
         skt.bind((HOST, PORT))
+        print("Ligação do socket estabelecida")
     except:
         print('Erro: falha ao ligar socket ao endereço')
         exit()
-
-    print("Ligação do socket estabelecida")
-
-    skt.settimeout(TIMEOUT)  # Define um timeout em segundos
 
     # Retorna valores mensagem (bytes) e endereço do cliente
     while True:
