@@ -12,6 +12,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as skt:
     skt.sendto(bytes(input("Digite qualquer coisa:\n->"), 'utf8'),
                (HOST, PORT))
 
+    # Busca receber resposta (tentativa)
     try:
         msg = skt.recv(1024)
 
@@ -21,4 +22,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as skt:
     except socket.timeout as e:
         print(e, f': nenhuma conexão após {TIMEOUT} segundos...')
 
+    # Dá o feedback da saída [simples]
     print("Finalização do socket")
